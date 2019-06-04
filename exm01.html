@@ -18,12 +18,18 @@
             { name: "Item 9" }
         ];
         var lista = document.querySelector("ul");
-        for (var i = 0; i < itens.length; i++) {
+        atualizaLista();
+        
+        function atualizaLista(){
+            lista.innerHTML="";
+            for (var i = 0; i < itens.length; i++) {
             var nLi = document.createElement("li");
             nLi.textContent = itens[i].name;
             lista.appendChild(nLi);
             nLi.addEventListener("click", criaOuvinte(i));
         }
+        }
+        
 
         function criaOuvinte(n) {
             return function (evento) {
@@ -31,7 +37,7 @@
                 console.log("i: ", n);
                 itens.splice(n, 1);
                 console.log("Item Clickado",evento.srcElement.textContent);
-                lista.removeChild(evento.srcElement);
+                atualizaLista();
             }
         }
 
