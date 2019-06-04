@@ -24,9 +24,14 @@
             lista.innerHTML="";
             for (var i = 0; i < itens.length; i++) {
             var nLi = document.createElement("li");
-            nLi.textContent = itens[i].name;
+            var sNome = document.createElement("span");
+            sNome.textContent = itens[i].name;
+            var bDelete = document.createElement("button");
+            bDelete.textContent = "X";
+            nLi.appendChild(sNome);
+            nLi.appendChild(bDelete);
             lista.appendChild(nLi);
-            nLi.addEventListener("click", criaOuvinte(i));
+            bDelete.addEventListener("click", criaOuvinte(i));
         }
         }
         
