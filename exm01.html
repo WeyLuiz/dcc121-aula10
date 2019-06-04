@@ -41,7 +41,7 @@
                 console.log(evento);
                 console.log("i: ", n);
                 itens.splice(n, 1);
-                console.log("Item Clickado",evento.srcElement.textContent);
+                console.log("Item Clickado",evento.srcElement.parentNode);
                 atualizaLista();
             }
         }
